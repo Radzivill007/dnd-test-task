@@ -1,0 +1,41 @@
+@import '../../styles/vars.scss';
+
+.taskCard {
+  position: relative;
+  width: 100%;
+  background: $white;
+  backdrop-filter: $backdrop-filter;
+  box-shadow: $box-shadow;
+  padding: 16px;
+  margin-bottom: 30px;
+  min-height: 150px;
+  display: flex;
+  & .content {
+    flex: 1;
+  }
+  & h3 {
+    font-size: 22px;
+    margin-bottom: 16px;
+  }
+  & .buttons {
+    & > button {
+      background: transparent;
+      border: 0;
+      outline: 0;
+      cursor: pointer;
+      &:not(:last-child) {
+        margin-right: 20px;
+      }
+      &.edit {
+        & svg {
+          fill: $blue;
+        }
+      }
+      &.delete {
+        & svg {
+          fill: $red;
+        }
+      }
+    }
+  }
+}

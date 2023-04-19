@@ -1,0 +1,7 @@
+@import '../../styles/vars.scss';
+.board {
+  min-height: 100vh;
+  background: $gradient;
+  padding: 40px;
+  display: flex;
+}

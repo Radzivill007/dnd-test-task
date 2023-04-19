@@ -1,0 +1,29 @@
+@import '../../../styles/vars.scss';
+
+.confirmModal {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  width: 500px;
+  & h3 {
+    font-size: 20px;
+  }
+  & .buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 20px;
+    & > button {
+      cursor: pointer;
+      border: 0;
+      outline: 0;
+      color: $white;
+      padding: 7px 15px;
+      &.save {
+        background: $green;
+      }
+      &.cancel {
+        background: $red;
+      }
+    }
+  }
+}
