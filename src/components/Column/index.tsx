@@ -28,7 +28,7 @@ const Column = ({ title, tasks, editButton }: ColumnProps) => {
       <StrictModeDroppable droppableId={title}>
         {(provided) => (
           <div className={styles.tasks} {...provided.droppableProps} ref={provided.innerRef}>
-            {tasks.map((task, index) => (
+            {tasks?.map((task, index) => (
               <TaskCard
                 key={task.id}
                 index={index}

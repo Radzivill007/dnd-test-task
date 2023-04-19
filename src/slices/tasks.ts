@@ -7,7 +7,7 @@ const savedTasks = localStorage.getItem('tasksState')
 const tasksFromLocalStorage = savedTasks && JSON.parse(savedTasks)
 
 const initialState = Object.fromEntries(
-  Object.values(TaskStatuses).map((taskStatus, index) => [
+  Object.values(TaskStatuses)?.map((taskStatus, index) => [
     taskStatus,
     (Object.values(tasksFromLocalStorage)[index] || []) as Task[],
   ])

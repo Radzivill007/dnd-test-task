@@ -25,7 +25,7 @@ const TaskBoard = () => {
   return (
     <DragDropContext onDragEnd={onDragEnd}>
       <div className={styles.board}>
-        {Object.keys(tasks).map((title, index) => (
+        {Object.keys(tasks)?.map((title, index) => (
           <Column key={title} title={title} tasks={tasks[title]} editButton={index === 0} />
         ))}
       </div>
