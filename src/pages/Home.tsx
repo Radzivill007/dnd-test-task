@@ -4,7 +4,7 @@ import TaskBoard from '../components/TaskBoard'
 import TaskModal from '../components/Modals/TaskModal'
 
 const Home = () => {
-  const open = useAppSelector((state) => state.modal.open)
+  const open = useAppSelector((state) => state.taskModal.open)
 
   return (
     <>

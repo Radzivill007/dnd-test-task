@@ -7,7 +7,7 @@ import styles from './TaskModal.module.scss'
 
 const TaskModal = () => {
   const dispatch = useAppDispatch()
-  const task = useAppSelector((state) => state.modal.task)
+  const task = useAppSelector((state) => state.taskModal.task)
 
   const [title, setTitle] = useState('')
   const [description, setDescription] = useState('')

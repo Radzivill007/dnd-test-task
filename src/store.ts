@@ -3,7 +3,7 @@ import { taskModalReducer, tasksReducer, saveTasksStateMiddleware } from './slic
 
 const rootReducer = combineReducers({
   tasks: tasksReducer,
-  modal: taskModalReducer,
+  taskModal: taskModalReducer,
 })
 
 const store = configureStore({
