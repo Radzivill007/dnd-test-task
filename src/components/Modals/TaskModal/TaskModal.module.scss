@@ -9,16 +9,31 @@
     font-size: 30px;
   }
   & label {
+    position: relative;
     display: flex;
     align-items: center;
     gap: 30px;
-    font-size: 18px;
+    font-size: 20px;
+    & p {
+      width: 100px;
+    }
     & input {
       flex: 1;
       padding: 10px;
-      border: 0;
+      border: 1px solid;
+      border-color: transparent;
       outline: 0;
       box-shadow: $box-shadow;
+      &.error {
+        border-color: $red;
+      }
+    }
+    & .errorMessage {
+      position: absolute;
+      top: 100%;
+      left: 130px;
+      color: $red;
+      font-size: 14px;
     }
   }
   & .buttons {

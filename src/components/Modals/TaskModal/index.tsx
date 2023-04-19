@@ -12,6 +12,7 @@ const TaskModal = () => {
   const [title, setTitle] = useState('')
   const [description, setDescription] = useState('')
   const [confirmModalOpen, setConfirmModalOpen] = useState(false)
+  const [error, setError] = useState('')
 
   useEffect(() => {
     if (task) {
@@ -20,11 +21,18 @@ const TaskModal = () => {
     }
   }, [task])
 
-  const handleTitleChange = (e: ChangeEvent<HTMLInputElement>) => setTitle(e.target.value)
+  const handleTitleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setTitle(e.target.value)
+    setError('')
+  }
   const handleDescriptionChange = (e: ChangeEvent<HTMLInputElement>) => setDescription(e.target.value)
 
   const handleTaskModalCancel = () => dispatch(hideTaskModal())
   const handleTaskSave = () => {
+    if (!title) {
+      setError('Пожалуйста, введите заголовок задачи')
+      return
+    }
     if (task) setConfirmModalOpen(true)
     else {
       dispatch(addTask({ id: new Date().getTime(), title, description }))
@@ -44,11 +52,13 @@ const TaskModal = () => {
       <div className={styles.taskModal}>
         <h2>{`${task ? 'Редактировать' : 'Создать'} задачу`}</h2>
         <label>
-          Заголовок:
-          <input type="text" value={title} onChange={handleTitleChange} />
+          <p>Заголовок:</p>
+          <input type="text" className={error ? styles.error : ''} value={title} onChange={handleTitleChange} />
+          {error && <div className={styles.errorMessage}>{error}</div>}
         </label>
+
         <label>
-          Описание:
+          <p>Описание:</p>
           <input type="text" value={description} onChange={handleDescriptionChange} />
         </label>
         <div className={styles.buttons}>
